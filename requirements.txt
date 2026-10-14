@@ -1,0 +1,17 @@
+# ConvertTools 运行依赖（Windows / Python 3.10+）
+# 安装：py -m pip install -r requirements.txt
+
+PySide6>=6.10          # Qt 界面框架
+PyMuPDF>=1.24          # PDF 渲染、合并（PDF ⇄ 图片、多 PDF 合并）
+pdf2docx>=0.5.8        # PDF → Word 转换
+pdfplumber>=0.11       # PDF 表格提取（PDF → Excel）
+openpyxl>=3.1          # 生成 xlsx（PDF → Excel）
+Pillow>=11             # 图片 → PDF
+pywin32>=312; sys_platform == 'win32'   # Word/Excel COM 自动化（Word/Excel → PDF）
+
+# 说明：
+# - 视频转换、音视频分离/合并依赖 ffmpeg（非 pip 包）。
+#   本项目优先使用 tools/ffmpeg.exe（便携版，打包分发方便），
+#   其次查找系统 PATH 中的 ffmpeg（可用 winget install Gyan.FFmpeg 安装）。
+# - Word/Excel → PDF 需要本机安装 Microsoft Office。
+# - 打包成 exe：py -m PyInstaller -F -w main.py --name ConvertTools
